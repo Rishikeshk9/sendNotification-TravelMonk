@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "node app.js",
-    "start": "node app.js",
+    "test": "node index.js",
+    "start": "node index.js",
     "build": "echo 'No build step required'",
-    "dev": "node app.js"
+    "dev": "node index.js"
   },
   "keywords": [],
   "author": "",
