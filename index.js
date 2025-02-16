@@ -6,7 +6,7 @@ const { createClient } = require('@supabase/supabase-js');
 require('dotenv').config();
 //
 const app = express();
-const port = 3005;
+const port = process.env.PORT || 3000;
 
 // Add CORS middleware
 app.use(cors());
@@ -23,6 +23,7 @@ const serviceAccount = JSON.parse(process.env.FIREBASE_ADMIN_SDK_KEY);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
+app.get('/', (req, res) => res.send('Express on Vercel'));
 
 // Send Notification API
 app.post('/send-notification', async (req, res) => {
