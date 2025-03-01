@@ -2,8 +2,11 @@
   "name": "notifications",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \" no test specified\" && exit 1"
+"scripts": {
+    "test": "nodemon app.js",
+    "start": "node app.js",
+    "build": "echo 'No build step required'",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
