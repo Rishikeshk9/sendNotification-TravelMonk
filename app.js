@@ -34,7 +34,7 @@ app.post('/send-notification', async (req, res) => {
   if (!title || !body) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
-
+//asd
   try {
     // Fetch all device tokens from Supabase
     const { data: deviceTokens, error } = await supabase
