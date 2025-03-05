@@ -4,8 +4,8 @@ const supabase = require('../util/supabaseclient');
 
 
 module.exports = async (req, res) => {
-    const { senderId, receiverId, msg } = req.body;
-    console.log(senderId, receiverId, msg);
+    const { senderId, receiverId, msg, chatId } = req.body;
+    console.log(senderId, receiverId, msg, chatId);
     try {
         // Fetch sender data from Supabase
         const { data: sender, error: senderError } = await supabase
@@ -39,7 +39,11 @@ module.exports = async (req, res) => {
                     title: `New message from ${sender.name}`,
                     body: msg || "You have received a new message",
                 },
-                data: { click_action: "FLUTTER_NOTIFICATION_CLICK" },
+                data: {
+                    "chat_id": chatId,
+                    "click_action": "FLUTTER_NOTIFICATION_CLICK",
+                    "type": "chat_message"
+                },
             };
 
             return admin.messaging().send(message);
